@@ -128,11 +128,18 @@ changeSignBtn.addEventListener('click', () => {
 })
 
 decimal.addEventListener('click', () => {
-    if (displayText.textContent.includes('.')) decimal.disabled = true;
-    else if (sign === null) num1 += '.';
-    else num2 += '.';
-    
-    displayText.textContent += decimal.textContent;
+    if (displayText.textContent.includes('.')) {
+        decimal.disabled = true;
+    } else if (!displayText.textContent.includes('.')){
+        decimal.disabled = false;
+        if (sign === null) {
+            num1 += '.'
+            displayText.textContent = num1;
+        } else {
+            num2 += '.';
+            displayText.textContent = num2;
+        };
+    }
 })
 
 equalBtn.addEventListener('click', () => {
