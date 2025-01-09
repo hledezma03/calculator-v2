@@ -3,6 +3,11 @@ const numbers = document.querySelectorAll('.number');
 const operators = document.querySelectorAll('.operator');
 const clearBtn = document.querySelector('.clear-btn');
 const equalBtn = document.querySelector('.equal-btn')
+const delBtn = document.querySelector('.del-btn');
+const changeSignBtn = document.querySelector('.change-sign-btn');
+const decimal = document.querySelector('.decimal');
+
+
 
 let num1 = null;
 let num2 = null;
@@ -79,7 +84,27 @@ operators.forEach(operator => {
     })
 })
 
-
+delBtn.addEventListener('click', () => {
+    if (sign === null) {
+        if (num1.length > 1) {
+            let newNum1 = num1.slice(0, -1);
+            displayText.textContent = newNum1;
+            num1 = newNum1;
+        } else {
+            num1 = null;
+            displayText.textContent = '0';
+        }
+    } else {
+        if (num2.length > 1) {
+            let newNum2 = num2.slice(0, -1);
+            displayText.textContent = newNum2;
+            num2 = newNum2;
+        } else {
+            num2 = 0;
+            displayText.textContent = '0';
+        }
+    }
+})
 
 clearBtn.addEventListener('click', () => {
     displayText.textContent = '0';
@@ -90,7 +115,7 @@ clearBtn.addEventListener('click', () => {
 
 equalBtn.addEventListener('click', () => {
     if (num1 && sign) {
-        result = operation(num1, num2, sign);
+        result = operation(parseFloat(num1), parseFloat(num2), sign);
         displayText.textContent = result;
         num1 = result;
         num2 = null;

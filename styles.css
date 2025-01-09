@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 1.9rem;
+    font-size: 1.4rem;
     color: #fff;
 }
 
@@ -17,7 +17,7 @@ body {
 .container {
     background-color: #1c1c1c;
     padding: 24px;
-    height: 600px;
+    height: 550px;
     width: 400px;
     border-radius: 1rem;
 }
@@ -38,8 +38,13 @@ button {
     cursor: pointer;
     width: 20%;
     padding: 10px;
-    border-radius: 40%;
+    border-radius: 22px;
     border: none;
+}
+
+.double {
+    width: 45%;
+    border-radius: 12px;
 }
 
 .btns-container {
@@ -49,14 +54,14 @@ button {
     justify-content: center;
 }
 
-.number {
+.number, .decimal {
     background-color: #3b3838;
 }
 
-.operator {
+.operator, .equal-btn {
     background-color: #ff9500;
 }
 
-.clear-btn , .equal-btn {
+.clear-btn, .del-btn, .change-sign-btn{
     background-color: #adadaa;
 }
