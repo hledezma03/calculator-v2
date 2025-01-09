@@ -39,6 +39,7 @@ button {
     width: 20%;
     padding: 10px;
     border-radius: 40%;
+    border: none;
 }
 
 .btns-container {
