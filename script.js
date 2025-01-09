@@ -84,6 +84,13 @@ operators.forEach(operator => {
     })
 })
 
+clearBtn.addEventListener('click', () => {
+    displayText.textContent = '0';
+    num1 = null;
+    num2 = null;
+    sign = null;
+});
+
 delBtn.addEventListener('click', () => {
     if (sign === null) {
         if (num1.length > 1) {
@@ -106,12 +113,27 @@ delBtn.addEventListener('click', () => {
     }
 })
 
-clearBtn.addEventListener('click', () => {
-    displayText.textContent = '0';
-    num1 = null;
-    num2 = null;
-    sign = null;
-});
+changeSignBtn.addEventListener('click', () => {
+    if (sign === null) {
+        if (parseFloat(num1) !== 0) {
+            num1 = -parseFloat(num1);
+            displayText.textContent = num1;
+        }
+    } else {
+        if (parseFloat(num2) !== 0) {
+            num2 = -parseFloat(num2);
+            displayText.textContent = num2;
+        }
+    }
+})
+
+decimal.addEventListener('click', () => {
+    if (displayText.textContent.includes('.')) decimal.disabled = true;
+    else if (sign === null) num1 += '.';
+    else num2 += '.';
+    
+    displayText.textContent += decimal.textContent;
+})
 
 equalBtn.addEventListener('click', () => {
     if (num1 && sign) {
